@@ -1,0 +1,29 @@
+{
+    "source": ["design-tokens/02-dest/tokens.json"],
+    "platforms": {
+      "css": {
+        "buildPath": "src/design-tokens/",
+        "transformGroup": "css",
+        "files": [
+          {
+            "format": "css/variables",
+            "destination": "tokens.css"
+          }
+        ]
+      },
+      "ts": {
+        "transformGroup": "js",
+        "buildPath": "src/design-tokens/",
+        "files": [
+          {
+            "destination": "tokens.js",
+            "format": "javascript/module"
+          },
+          {
+            "destination": "tokens.d.ts",
+            "format": "typescript/module-declarations"
+          }
+        ]
+      }
+    }
+  }
