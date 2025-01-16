@@ -1,14 +1,21 @@
 {
-  "name": "design-token",
+  "name": "@design-token-test-organization/design-token",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "files": [
+    "src/design-token/**"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/design-token-test-organization"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/design-token-test-organization/design-token.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish:branch": "if [[ $(git rev-parse --abbrev-ref HEAD) == feature/* ]]; then npm publish --tag $(git rev-parse --abbrev-ref HEAD); else echo 'Not a feature branch'; exit 1; fi"
   },
   "author": "",
   "license": "ISC",

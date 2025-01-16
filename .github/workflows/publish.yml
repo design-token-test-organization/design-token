@@ -1,0 +1,24 @@
+name: Publish Package
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          registry-url: 'https://npm.pkg.github.com'
+      
+      - run: npm ci
+      - run: npx style-dictionary build --config style-dictionary.config.json
+      - run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          npm publish --tag $BRANCH_NAME
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}} 

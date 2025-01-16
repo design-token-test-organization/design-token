@@ -1,0 +1,12 @@
+{
+  "name": "@your-org/design-tokens",
+  "version": "1.0.0",
+  "description": "デザイントークン",
+  "main": "dist/tokens.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+} 
